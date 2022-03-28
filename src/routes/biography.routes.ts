@@ -13,8 +13,8 @@ export interface BiographyType {
 
 const service = new BiographyService();
 
-router.get("/", (req, res: Response<BiographyType[]>) => {
-	const biographys = service.find();
+router.get("/", async (req, res: Response<BiographyType[]>) => {
+	const biographys = await  service.find() as BiographyType[];
 	res.json(biographys);
 });
 router.get("/:id", 
