@@ -1,5 +1,8 @@
 
 import { BiographyType } from "../routes/biography.routes";
+import {sequelize} from "lib/sequelize";
+import { QueryTypes } from "sequelize/types";
+
 
 class BiographyService{
 	biography: BiographyType[];
@@ -17,8 +20,10 @@ class BiographyService{
 		this.biography.push({id: `${this.biography.length}` , ...newBiography});
 		return newBiography;
 	}
-	find(){
-		return this.biography;
+	async find(){
+		const query = "SELECT * FROM biographys";
+		const [data] = await sequelize.query(query);
+		return data;
 	}
 	findOne(id: string){
 		return this.biography.find(({id: idBiography}) => idBiography === id);
