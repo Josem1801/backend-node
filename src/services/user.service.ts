@@ -13,7 +13,6 @@ class UserService{
 		return res;
 	}
 	async findOne(id): Promise<any>{
-		console.log(id);
 		const user = await sequelize.models.User.findByPk(id);
 		if(!user) throw Boom.notFound("User not found");
 		return user;

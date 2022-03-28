@@ -16,7 +16,6 @@ export interface UserType {
 router.get("/", async (req: Request, res: Response, next) => {
 	try {
 		const users = await service.find();
-		console.log(users);
 		res.json(users);
 	} catch (error) {
 		next(error);
