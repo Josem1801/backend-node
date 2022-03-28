@@ -8,7 +8,7 @@ function routerApi(app: Express){
 	const router = express.Router();
 	app.use("/api/v1", router);
 	router.use("/biographys", biographyRouter);
-	router.use("/user",userRouter );
+	router.use("/users",userRouter );
 	router.use("/categories", categoriesRouter);
 
 }
